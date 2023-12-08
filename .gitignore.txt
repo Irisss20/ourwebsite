@@ -1,6 +1,0 @@
-*.pyc
-*.class
-*.o
-*.out
-*~
-*.sqlite3
