@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends 'main.html' %}
+    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>Vacancy №{{ vacancy.id }}</title> -->
+</head>
+<body>
+
+
+    {% for quiz in quiz %}
+    <h4>{{ quiz.question }}</h4>
+    <textarea id="userInput" placeholder="Enter your answer" rows="" cols="5"></textarea>
+    {% endfor %}
+
+    {% for additional_field in quiz_add_f.items %}
+    <p>{{ additional_field.field_name }}: {{ additional_field.value }}</p>
+{% endfor %}
+    <!-- <h1>{{vacancy.name}}</h1>
+    <hr>Description:
+            <h5>{{ vacancy.description }}</h5> -->
+    <div>
+        <a href="" type></a>
+    </div>
+    {% endblock %}
+</body>
+</html>

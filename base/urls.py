@@ -10,7 +10,10 @@ urlpatterns =[
     path('logout', users_views.logout, name='logout'),
     # path('logout', users_views.logout, name='logout'),
     path('create-v', views.createVac, name='create_vacancy'),
+    path('create-q', views.createQuiz, name='create_quiz'),
     path('delete-v/<int:pk>', views.deleteVac, name='delete_vacancy'),
     path('upd-v/<int:pk>', views.updateVac, name='update_vacancy'),
     path('v-dtls/<int:pk>', views.vacancies, name='vacancy_details'),
+    path('quiz/<int:pk>', views.show_quiz, name='quiz'),
+    path('developers/<slug:d_slug>', views.show_devs, name='devs'),
 ]

@@ -5,10 +5,18 @@
 <div class="wrapper">
     <form method = 'POST' action="">
         {% csrf_token %}
-        {{form.as_p}}
+        {{vac_form.as_p}}
+        {{field_form.as_p}}
         <input type="submit" value="Submit"/>
 
     </form>
+</div>
+<div>
+    <!-- <form method = 'POST' action="">
+        {% csrf_token %}
+        <input type="submit" value="Submit"/>
+
+    </form> -->
 </div>
 </body>
 {% endblock content %}

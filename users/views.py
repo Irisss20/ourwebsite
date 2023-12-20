@@ -5,6 +5,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .userforms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
+from users.models import Profile
+from .userforms import UserRegisterForm
+from django.contrib.auth import authenticate, logout as user_logout # База для входа и выхода с учетной записи
+from django.contrib.auth import login
+from django.contrib.auth.models import User  # База для авторизации
+from .userforms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+
+
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)

@@ -1,8 +1,8 @@
 <!-- Наследование кылабыз !-->
 {% extends "navbar.html" %}
 {% block content %}
-{% block search_bar %}
 {% include 'search_bar.html' %}
+{% block search_bar %}
 {% endblock %}
 <!-- asdsda -->
 <div class="wrapper">
@@ -14,12 +14,10 @@
             <div>
                 <a href="{% url 'home_page'  %}">All</a>
             </div>
-
-        {% for devgrade in devgrades %}
-            <div>
-                <a href="{% url 'home_page'  %}?q={{devgrade.name}}">{{devgrade.name}}</a>
-            </div>
-        {% endfor %}
+            
+            {% block list %}    
+            {% include 'base/list_developers.html' %}
+        {% endblock %}
     </div>
 
 
@@ -36,7 +34,7 @@
             <h3><a href="{% url 'vacancy_details' vacancy.id%}">{{vacancy.name}}</a></h3>
             <br>
             <!-- <small>{{room.topic.name}}</small> -->
-            <!-- <h6><span>@{{room.host.username}}</span></h6> -->
+            <h6><a href="#">@{{vacancy.employer.username}}</a></h6>
             <hr>
         </div>
 

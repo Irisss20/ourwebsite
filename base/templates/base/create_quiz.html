@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<body>
+<div class="wrapper">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ quiz_form.as_p }}
+        <div id="additional_fields"></div>
+        <button type="button" id="add_field_button">Add New Field</button>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        var fieldCounter = 0;
+
+        $('#add_field_button').on('click', function () {
+            fieldCounter++;
+
+            var newFieldHtml = `
+                <label for="id_additional_field_${fieldCounter}">Additional Field ${fieldCounter}</label>
+                <input type="text" name="additional_field_${fieldCounter}" id="id_additional_field_${fieldCounter}" />
+            `;
+
+            $('#additional_fields').append(newFieldHtml);
+        });
+    });
+</script>
+</body>
+{% endblock content %}

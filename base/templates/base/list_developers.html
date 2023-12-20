@@ -1,0 +1,6 @@
+{% for devgrade in devgrades %}
+
+            <div>
+                <a href="{{ devgrade.get_absolute_url }}">{{devgrade.name}}</a>
+            </div>
+        {% endfor %}

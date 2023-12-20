@@ -12,8 +12,8 @@ class VacForm(ModelForm):
 #         oredering = ['-updated']
         
 
-# class QuizForm(ModelForm, Vacancy):
-#     class Meta:
-#         model = Quiz
-#         fields = '__all__'
+class QuizForm(ModelForm):
+    class Meta:
+        model = Quiz
+        fields = '__all__'
 
