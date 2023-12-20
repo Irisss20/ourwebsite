@@ -1,0 +1,14 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+<div>
+    <form method = 'POST' action="">
+        <div>
+            {% csrf_token %}
+            {{send_message_form.as_p}}
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+{% endblock %}
+

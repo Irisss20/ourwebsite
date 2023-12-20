@@ -19,18 +19,59 @@
     {% endif %}
 </head>
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-blue fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'home_page' %}"><i class='bx bxs-rocket bx-tada-hover'></i>HeadHUnter</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link " href="{% url 'home_page' %}">Главная</a>
-              <a class="nav-item nav-link" href="{% url 'about_us' %}">О сайте</a>
-              <a class="nav-item nav-link" href="{% url 'news' %}">Новости</a>
+            <header class="site-header">
+            <nav class="navbar navbar-expand-md navbar-dark bg-blue fixed-top">
+                <div class="container">
+                <a class="navbar-brand mr-4" href="{% url 'home_page' %}"><i class='bx bxs-rocket bx-tada-hover'></i>HeadHUnter</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link " href="{% url 'home_page' %}">Главная</a>
+                    <a class="nav-item nav-link" href="{% url 'home_page' %}">О сайте</a>
+                    </div>
+                    <!-- Правая часть ебучего нав бара -->
+                    <div class="navbar-nav">
+                        <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'message' %}">Уведомления</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'loginPage' %}">Вход</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Регистрация</a>
+                    {% endif %}
+                    </div>
+                </div>
+                </div>
+            </nav>
+            </header>
+            <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+            {% endif %}
+                {% block content %}{% endblock %}
+                </div>
+                <div class="col-md-4">
+                <div class="content-section">
+                    <h3>Primary List</h3>
+                    <p class='text-muted'>New job
+                    <ul class="list-group">
+                        
+                        {% for i in vac_list %}
+                        <li class="list-group-item list-group-item-light">{{i.name}}</li>
+                        {% endfor %}
+                    </ul>
+                    </p>
+                </div>
+                </div>
             </div>
             <!-- Правая часть ебучего нав бара -->
             <div class="navbar-nav">
@@ -86,4 +127,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+<<<<<<< HEAD
+=======
+<!-- Футер закреплен внизу, независит от количества постов на странице -->
+>>>>>>> 238034fd84aeccdc92ccde00868697ae9f191590
 </html>

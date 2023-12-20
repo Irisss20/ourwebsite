@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "navbar.html" %}
+
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if show_messages %}
+        <ul>
+            {% for message in show_messages %}
+                <li>
+                    <strong>Sender:</strong> {{ message.user }}<br>
+                    <strong>Content:</strong> {{ message.text }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages available.</p>
+    {% endif %}
+    {% endblock %}
+</head>
+<body>
+    
+</body>
+</html>
