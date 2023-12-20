@@ -6,6 +6,8 @@ urlpatterns =[
     # path('about-us', views.Home, name='about_us'),
     path('login_u', users_views.u_login, name='loginPage'),
     path('reg_us', users_views.register, name='register'),
+    path('messages', users_views.show_messages, name='message'),
+    path('send_messages', users_views.in_messages, name='send_message'),
     path('us_prof', users_views.profile, name='profile'),
     # path('logout/', users_views.logout.as_view(template_name='users/userlogout.html'), name='logout'),
     path('logout', users_views.logout, name='logout'),
