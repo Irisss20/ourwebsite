@@ -5,20 +5,20 @@
 {% block search_bar %}
 {% endblock %}
 <!-- asdsda -->
-<div class="wrapper">
-<div class="home-container">
-    <div>
-    <br>
-        <h3>Browse Topics</h3>
-        <hr>
-            <div>
-                <a href="{% url 'home_page'  %}">All</a>
-            </div>
-            
-            {% block list %}    
-            {% include 'base/list_developers.html' %}
-        {% endblock %}
-    </div>
+    <div class="wrapper">
+    <div class="home-container">
+        <div>
+        <br>
+            <h3>Browse Topics</h3>
+            <hr>
+                <div>
+                    <a href="{% url 'home_page'  %}">All</a>
+                </div>
+
+                {% block list %}
+                {% include 'base/list_developers.html' %}
+            {% endblock %}
+        </div>
 
 
     <div>

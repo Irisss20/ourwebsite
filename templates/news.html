@@ -1,0 +1,75 @@
+{% extends "base/home_page.html" %}
+ {% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section" >
+        <h2>Новости
+       <h4/>
+        </div>
+<div class="border-top pt-3">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <style>
+        /* Пример стилей для новостей */
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .news-article {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        .news-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .news-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .news-date {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="news-container">
+    <h1>Новости</h1>
+
+    <div class="news-article">
+        <h2 class="news-title">Новости в сфере IT</h2>
+        <a class="nav-item nav-link " href="{% url 'home_page' %}">Подробно</a>
+        <p class="news-content">Информационные технологии (IT) являются основой современного мира, обеспечивая инновации и преобразование бизнеса и общества. Они охватывают широкий спектр областей, включая разработку программного обеспечения, сетевые технологии, искусственный интеллект, облачные вычисления и многое другое. IT ускоряют коммуникации, оптимизируют процессы и создают новые возможности в сфере образования, медицины, финансов и развлечений, играя ключевую роль в формировании нашего будущего.
+
+
+
+
+        </p>
+        <p class="news-date">Дата: 2023-12-20</p>
+    </div>
+
+    <div class="news-article">
+        <h2 class="news-title">Новости в сфере IT</h2>
+                <a class="nav-item nav-link " href="{% url 'home_page' %}">Подробно</a>
+
+        <p class="news-content">Информационные технологии (IT) являются основой современного мира, обеспечивая инновации и преобразование бизнеса и общества. Они охватывают широкий спектр областей, включая разработку программного обеспечения, сетевые технологии, искусственный интеллект, облачные вычисления и многое другое. IT ускоряют коммуникации, оптимизируют процессы и создают новые возможности в сфере образования, медицины, финансов и развлечений, играя ключевую роль в формировании нашего будущего.</p>
+        <p class="news-date">Дата: 2023-12-19</p>
+    </div>
+
+    <!-- Другие новости будут здесь -->
+
+</div>
+
+</body>
+</html>
+
+    </div>
+{% endblock content %}

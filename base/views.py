@@ -146,3 +146,33 @@ def deleteVac(request,pk):
 #     context = {'quiz_form': quiz_form}
 #     return render(request, 'base/create_quiz.html', context)
 
+def about_us(request):
+    # Ваша логика, если требуется, для получения данных для страницы "О нас"
+    # Например:
+    company_info = {
+        'name': 'Название компании',
+        'description': 'Описание компании и её цели...',
+        # Другие данные
+    }
+    return render(request, 'about_us.html', {'company_info': company_info})
+
+from django.shortcuts import render
+
+def news(request):
+    # Здесь вы можете добавить логику для получения новостей из базы данных
+    # Например:
+    news_articles = [
+        {
+            'title': 'Заголовок новости 1',
+            'content': 'Текст новости 1...',
+            'date': '2023-12-20',
+        },
+        {
+            'title': 'Заголовок новости 2',
+            'content': 'Текст новости 2...',
+            'date': '2023-12-19',
+        },
+        # Другие новости
+    ]
+
+    return render(request, 'news.html', {'news_articles': news_articles})

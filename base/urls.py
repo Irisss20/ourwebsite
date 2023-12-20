@@ -3,6 +3,7 @@ from . import views
 from users import views as users_views
 urlpatterns =[
     path('', views.Home, name='home_page'),
+    # path('about-us', views.Home, name='about_us'),
     path('login_u', users_views.u_login, name='loginPage'),
     path('reg_us', users_views.register, name='register'),
     path('us_prof', users_views.profile, name='profile'),
@@ -16,4 +17,6 @@ urlpatterns =[
     path('v-dtls/<int:pk>', views.vacancies, name='vacancy_details'),
     path('quiz/<int:pk>', views.show_quiz, name='quiz'),
     path('developers/<slug:d_slug>', views.show_devs, name='devs'),
+    path('about-us/', views.about_us, name='about_us'),
+    path('news/',views.news, name='news'),
 ]
