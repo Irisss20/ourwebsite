@@ -40,10 +40,15 @@ def show_devs(request, d_slug):
 
 def vacancies(request, pk):  # pk это специальное выражение для обозначения уникальной идентификации каждой записи 
     vacancy = Vacancy.objects.get(id=pk) 
-    vac_list = Vacancy.objects.all()
      
-    context = {'vacancy': vacancy, 'vac_list': vac_list}
+    context = {'vacancy': vacancy}
     return render(request, 'base/vacancy_details.html', context)
+
+def vacancies_list(request):
+    vac_list = Vacancy.objects.all()
+    
+    context ={'vac_list': vac_list}
+    return render(request, 'navbar.html', context)
 
 @login_required(login_url='/login')
 def createVac(request):
