@@ -67,23 +67,11 @@
             {% endif %}
                 {% block content %}{% endblock %}
                 </div>
-                <div class="col-md-3">
-                <div class="content-section">
-                    <h3>Вакансии</h3>
-                    <p class='text-muted'>Последние вакансии
-                    <ul class="list-group">
-                        
-                        {% for i in vac_list %}
-                        <li class="list-group-item list-group-item-light">{{i.name}}</li>
-                        {% endfor %}
-                    </ul>
-                    </p>
-                </div>
-                </div>
+
             </div>
 
         </main>
-
+        {% include 'header_footer.html' %}
 
         <!-- Дополнительные скрипты JavaScript -->
         <!-- Сначала jQuery, затем Popper.js, последним Bootstrap JS -->
