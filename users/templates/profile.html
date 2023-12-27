@@ -32,13 +32,21 @@
         margin-bottom: 20px;
         right: 50;
     }
+    .content-section.p4 {
+        padding: 20px;
+        position: relative;
+        background-color: #6274865b;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        right: 20;
+    }
     .content-section.p2 {
         padding: 20px;
         position: absolute;
         background-color: #6274865b;
         border-radius: 10px;
         margin-bottom: 20px;
-        right: 300px;
+        right: 5px;
     }
 
     .content-section h4 {
@@ -70,10 +78,11 @@
 <div class="content-section">
     <!-- Вывод профиля пользователя -->
     <div class="media">
-        <p class="content-section p2">{{ user.email }}</p>
+        <p class="btn btn-dark rounded-pill px-3">Email: {{ user.email }}</p>
+        <br>
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
-            <p class="content-section h4">{{ user.username }}</p>
+            <p class="btn btn-danger rounded-pill px-3"">Username: {{ user.username }}</p>
         </div>
     </div>
     

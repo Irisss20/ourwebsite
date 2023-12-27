@@ -1,9 +1,6 @@
 <!-- Наследование кылабыз !-->
 {% extends "navbar.html" %}
 {% block content %}
-{% include 'search_bar.html' %}
-{% block search_bar %}
-{% endblock %}
 {% load static %}
 
 <style>
@@ -27,7 +24,7 @@
     background: #898a508e;
     padding: 10px 110px;
     border: 1px solid #dddddd;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-bottom: 20px;
     }
     .content-section.p4 {
@@ -45,6 +42,7 @@
 }
     .article-title.p6 {
   color: #f5eff4;
+
 }
 .content-section.p5 {
   background: #3c1e1e6e;
@@ -89,9 +87,6 @@
         </div>
         <br>
             <div class="content-section p4">
-            {% if user.is_authenticated %}
-                <h6><a class="article-img" href="{% url 'create_vacancy' %}">Create vacancy</a></h6>
-            {% endif %}
             <br><br>
             {% for vacancy in vacancies %}
                 <div>
@@ -109,10 +104,13 @@
                             {% if vacancy.salary %}
                                 <p>Зарплата: {{ vacancy.salary }}</p>
                             {% endif %}
+                        
                             {% if vacancy.photo %}
                                 <img src="{{ vacancy.photo.url }}" alt="Vacancy photo" style="max-width: 300px; height: auto;">
                             {% endif %}
                             <p class="article-content">{{ post.content }}</p>
+                            <a class="btn btn-primary send-message-btn" href="{% url 'send_message' %}">Send message</a>
+
                         </div>
                     </article>
                 </div>
