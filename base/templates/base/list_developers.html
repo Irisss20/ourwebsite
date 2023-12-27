@@ -1,6 +1,8 @@
 {% for devgrade in devgrades %}
 
-            <div class="article-content">
-                <a href="{{ devgrade.get_absolute_url }}">{{devgrade.name}}</a>
+            <div class="content-section p4">
+                <div >
+                <a class="article-title p2" href="{{ devgrade.get_absolute_url }}">{{devgrade.name}}</a>
             </div>
+        </div>
         {% endfor %}

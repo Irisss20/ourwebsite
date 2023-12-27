@@ -1,26 +1,58 @@
 {% extends "base/home_page.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<style>
+    .content-section {
+  background: #36101049;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+    .content-section.p10 {
+  background: #55212156;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.article-title.p7 {
+  color: #909090;
+}
+.news-title {
+  color: #f9f9fa;
+}
+body {
+    background: linear-gradient(to bottom right, #D3D3D3, #2F4F4F);
+    background-attachment: fixed;
+    /* Additional properties for better readability of text or other elements on the background */
+    color: #fff; /* For example, white text on the gradient background */
+    /* Set the background image using the URL of your photo */
+    background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?cs=srgb&dl=pexels-guillaume-meurice-1591447.jpg&fm=jpg');
+    /* Adjust background properties for positioning and sizing */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
 <div class="content-section">
-    <h2>Новости</h2>
+    <h2 class="article-title p7">Новости</h2>
 </div>
 
-<div class="news-container">
+<div class="content-section p10">
     <div class="news-article">
         <h3 class="news-title">IT популярные статьи</h3>
-        <a class="nav-item nav-link" href="{% url 'new_page_url' %}">Подробнее</a>
+        <a class="article-title p7" href="{% url 'new_page_url' %}">Подробнее</a>
         <p class="news-content">Информационные технологии (IT) являются основой современного мира, обеспечивая инновации и преобразование бизнеса и общества. Они охватывают широкий спектр областей, включая разработку программного обеспечения, сетевые технологии, искусственный интеллект, облачные вычисления и многое другое. IT ускоряют коммуникации, оптимизируют процессы и создают новые возможности в сфере образования, медицины, финансов и развлечений, играя ключевую роль в формировании нашего будущего.</p>
         <p class="news-date">Дата: 2023-12-20</p>
     </div>
     
     <div class="news-article">
         <h3 class="news-title">Новости в сфере IT</h3>
-        <a class="nav-item nav-link" href="{% url 'new_page_url' %}">Подробнее</a>
+        <a class="article-title p7" href="{% url 'new_page_url' %}">Подробнее</a>
         <p class="news-content">Информационные технологии (IT) являются основой современного мира, обеспечивая инновации и преобразование бизнеса и общества. Они охватывают широкий спектр областей, включая разработку программного обеспечения, сетевые технологии, искусственный интеллект, облачные вычисления и многое другое. IT ускоряют коммуникации, оптимизируют процессы и создают новые возможности в сфере образования, медицины, финансов и развлечений, играя ключевую роль в формировании нашего будущего.</p>
         <p class="news-date">Дата: 2023-12-19</p>
     </div>
 </div>
-{% block vacancy_list_bar.html %}
-{% include 'vacancy_list_bar.html' %}
-{% endblock %}
+
 {% endblock content %}

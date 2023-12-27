@@ -21,7 +21,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #ca5858;
 }
 
 ul {
@@ -57,7 +57,7 @@ ul {
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: #0c141b;
   text-decoration: none;
 }
 
@@ -78,7 +78,7 @@ a.article-title:hover {
 }
 
 .article-metadata a:hover {
-  color: #333;
+  color: #191212;
   text-decoration: none;
 }
 

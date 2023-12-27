@@ -2,20 +2,36 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <style>
+
+        body {
+            background: linear-gradient(to bottom right, #D3D3D3, #2F4F4F);
+            background-attachment: fixed;
+            /* Additional properties for better readability of text or other elements on the background */
+            color: #fff; /* For example, white text on the gradient background */
+            /* Set the background image using the URL of your photo */
+            background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?cs=srgb&dl=pexels-guillaume-meurice-1591447.jpg&fm=jpg');
+            /* Adjust background properties for positioning and sizing */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
         .home-container{
            display: grid;
-           grid-template-columns: 730px 4cqb;
+           grid-template-columns: 1111px 4cqb;
+           left: auto;
         }
     
         .content-section {
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #6274865b;
             border-radius: 10px;
             margin-bottom: 20px;
         }
 
         .content-section h4 {
-            color: #007bff;
+            color: #ffffff;
         }
 
         .content-section.p2 p {
@@ -45,7 +61,7 @@
         <div class="content-section p2">
             <h4>Добро пожаловать на нашу платформу, которая предоставляет уникальные возможности для успешного поиска работы в сфере информационных технологий.</h4>
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
             <div class="content-section">
                 <h3>Вакансии</h3>
                 <p class='text-muted'>Последние вакансии
@@ -56,7 +72,7 @@
             {% endfor %}
         </ul>
         </p>
-    </div>
+    </div> -->
 </div>
 </div>
         

@@ -4,14 +4,68 @@
 {% include 'search_bar.html' %}
 {% block search_bar %}
 {% endblock %}
+{% load static %}
 
 <style>
+    h1, h2, h3, h4, h5 {
+  color: #ecd9d9;
+}
     /* Стили для фонового градиента */
     body {
-        background: linear-gradient(to bottom right, #D3D3D3, #2F4F4F);
-        /* Дополнительные свойства для улучшения читаемости текста или других элементов на фоне */
-        color: #fff; /* Например, белый текст на фоне градиента */
+    background: linear-gradient(to bottom right, #D3D3D3, #2F4F4F);
+    background-attachment: fixed;
+    /* Additional properties for better readability of text or other elements on the background */
+    color: #fff; /* For example, white text on the gradient background */
+    /* Set the background image using the URL of your photo */
+    background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?cs=srgb&dl=pexels-guillaume-meurice-1591447.jpg&fm=jpg');
+    /* Adjust background properties for positioning and sizing */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+    .content-section.p3 {
+    background: #898a508e;
+    padding: 10px 110px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
     }
+    .content-section.p4 {
+    background: #c98f8f50;
+    padding: 10px 100px;
+    border: 1px solid #dddddd;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    }
+    .article-title.p2 {
+  color: #ffffff;
+}
+    .article-title.p5 {
+  color: #f5eff4;
+}
+    .article-title.p6 {
+  color: #f5eff4;
+}
+.content-section.p5 {
+  background: #3c1e1e6e;
+  padding: 10px 180px;
+  padding: auto;
+  border: 1px solid #e4dddd;
+  border-radius: 100px;
+  margin-bottom: 5px;
+  margin-left:5px ;
+  margin-right: 5px;
+}
+.article-img {
+  background: #0c0707b6;
+  padding: 10px 1px;
+  border-radius: 5px;
+  padding: auto;
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
 </style>
 <!-- asdsda -->
 <div class="wrapper">
@@ -21,8 +75,8 @@
             <br>
             <h4>Browse</h4>
             <hr>
-            <div>
-                <a href="{% url 'home_page'  %}">All</a>
+            <div class="content-section p3">
+                <h4><a  class="article-title p6" href="{% url 'home_page'  %}">All</a></h4>
             </div>
 
             {% block list %}
@@ -30,11 +84,13 @@
             {% endblock %}
         </div>
 
-        <div>
-            <h6>Available vacancies: {{ vacancy_count }}</h6>
-            <br>
+        <div><div class="content-section p5">
+            <h6 class="article-title p5">Available vacancies: {{ vacancy_count }}</h6>
+        </div>
+        <br>
+            <div class="content-section p4">
             {% if user.is_authenticated %}
-                <h><a href="{% url 'create_vacancy' %}">Create vacancy</a></h>
+                <h6><a class="article-img" href="{% url 'create_vacancy' %}">Create vacancy</a></h6>
             {% endif %}
             <br><br>
             {% for vacancy in vacancies %}
