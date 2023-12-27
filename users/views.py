@@ -87,6 +87,40 @@ def in_messages(request):
     return render(request, 'send_message.html', context)
 
 def show_messages(request):
-    show_messages = InMessages.objects.all()
+    show_messages = InMessages.objects.all
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ()
     context = {'show_messages': show_messages}
     return render(request, 'message.html', context)

@@ -11,8 +11,10 @@
             {% for message in show_messages %}
                    <div class='content section'>
                  <div>
+                    <strong>From vacancy:</strong> <a">{{message.vacs }}</a><br>
                     <strong>Sender:</strong> {{ message.user }}<br>
                     <strong>Content:</strong> {{ message.text }}
+                    <hr>
                 </div>
                        </div>
             {% endfor %}

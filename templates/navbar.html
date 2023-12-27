@@ -13,45 +13,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap, иконки и шрифт -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">            <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
             <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
         {% if title %}
             <title>Блог сайта {{ title }}</title>
         {% else %}
-            <title> Рыся ищет работу</title>
+            <title> ITwork</title>
         {% endif %}
         </head>
 <body>
             <header class="site-header">
-            <nav class="navbar navbar-expand-md navbar-dark bg-blue fixed-top">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
                 <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'home_page' %}"><i class='bx bxs-rocket bx-tada-hover'></i>HeadHUnter</a>
+                <a class="navbar-brand mr-4" href="{% url 'home_page' %}"><i class='bx bxs-rocket bx-tada-hover'></i>ITwork</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link " href="{% url 'home_page' %}">Главная</a>
-                    <a class="nav-item nav-link " href="{% url 'news' %}">Новости</a>
-                    <a class="nav-item nav-link" href="{% url 'about_us' %}">О сайте</a>
+                    <a class="nav-item nav-link " href="{% url 'home_page' %}">Home</a>
+                    <a class="nav-item nav-link " href="{% url 'news' %}">News</a>
+                    <a class="nav-item nav-link" href="{% url 'about_us' %}">About</a>
 
                     </div>
                     <!-- Правая часть ебучего нав бара -->
-                    <div class="navbar-nav">
-                        <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'message' %}">Уведомления</a>
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
-                    {% else %}
-                        <a class="nav-item nav-link" href="{% url 'loginPage' %}">Вход</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Регистрация</a>
-                    {% endif %}
+                    <div class="navbar-nav ms-auto">
+
+                        {% if user.is_authenticated %}
+                                            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET" action="{% url 'home_page' %}">
+                              <input type="text" class="form-control form-control-dark text-bg-light" name="q" placeholder="Search..." aria-label="Search">
+                            </form>
+                            <div class="dropdown text-end">
+                                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end fade">
+                                    <li><a class="dropdown-item" href="{% url 'create_vacancy' %}">New Vacancy...</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'message' %}">Message</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <a href="{% url 'loginPage' %}" class="btn btn-outline-light me-5">Вход</a>
+                            <br>
+                            <a href="{% url 'register' %}" class="btn btn-warning">Регистрация</a>
+                        {% endif %}
                     </div>
-                </div>
                 </div>
             </nav>
             </header>
@@ -67,29 +78,16 @@
             {% endif %}
                 {% block content %}{% endblock %}
                 </div>
-                <div class="col-md-3">
-                <div class="content-section">
-                    <h3>Вакансии</h3>
-                    <p class='text-muted'>Последние вакансии
-                    <ul class="list-group">
-                        
-                        {% for i in vac_list %}
-                        <li class="list-group-item list-group-item-light">{{i.name}}</li>
-                        {% endfor %}
-                    </ul>
-                    </p>
-                </div>
-                </div>
+
             </div>
 
         </main>
-
+        {% include 'header_footer.html' %}
 
         <!-- Дополнительные скрипты JavaScript -->
         <!-- Сначала jQuery, затем Popper.js, последним Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script></body>
 <!-- Футер закреплен внизу, независит от количества постов на странице -->
 </html>
